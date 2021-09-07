@@ -1,0 +1,9 @@
+.auth-container {
+    background-color: whitesmoke;
+    opacity: .70;
+    margin: auto;
+    max-width: 20em;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: -10px -5px 10px 0px rgba(171, 179, 201, 0.78)
+}

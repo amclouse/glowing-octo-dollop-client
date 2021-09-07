@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import "./App.css";
+import Auth from "./components/Auth/Auth";
+import Home from "./components/Dashboard/Home";
+import Applications from "./components/Dashboard/Applications";
+import Navbar from "./components/Dashboard/Sidenav";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
+  const [sessionToken, setSessionToken] = useState("");
+
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      setSessionToken(localStorage.getItem("token"));
+    }
+  }, []);
+
+  const clearToken = () => {
+    localStorage.clear();
+    setSessionToken("");
+  };
+
+  const updateToken = (token) => {
+    localStorage.setItem("token", token);
+    setSessionToken(token);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App" style={{ display: "flex" }}>
+        {sessionToken === localStorage.getItem("token") ? (<Navbar clearToken={clearToken} />) : (<Auth updateToken={updateToken} />)}
+
+        
+      </div>
+    </Router>
   );
 }
 

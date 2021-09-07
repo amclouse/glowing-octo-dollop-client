@@ -1,0 +1,30 @@
+.home-container {
+    color: white;
+    /* display: flex; */
+    width: 100%;
+}
+
+.content-container {
+    display: flex;
+    margin: 1em;
+    height: 500px;
+    width: 100%;
+    background: rgb(29,29,29);
+    padding: 4em;
+    border-radius: 5px;
+    opacity: 0.95;
+}
+
+.content-container img {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+}
+
+.content-container div h1 {
+    margin: 1em;
+}
+
+
+
+/* style={{height: '100px', width: '100px', borderRadius: '50%'}} */
