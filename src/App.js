@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import Auth from "./components/Auth/Auth";
 import Home from "./components/Dashboard/Home";
-import Applications from "./components/Dashboard/Applications";
 import Navbar from "./components/Dashboard/Sidenav";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -28,7 +27,7 @@ function App() {
   return (
     <Router>
       <div className="App" style={{ display: "flex" }}>
-        {sessionToken === localStorage.getItem("token") ? (<Navbar clearToken={clearToken} />) : (<Auth updateToken={updateToken} />)}
+        {sessionToken === localStorage.getItem("token") ? (<Navbar token={sessionToken} clearToken={clearToken} />) : (<Auth updateToken={updateToken} />)}
 
         
       </div>

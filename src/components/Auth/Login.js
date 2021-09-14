@@ -38,7 +38,6 @@ const Login = ({ updateToken }) => {
       })
         .then((response) => response.json())
         .then((data) => {
-        console.log(data)
           updateToken(data.token);
         })
         .catch((err) => {

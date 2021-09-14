@@ -8,18 +8,19 @@ import {
 import "react-pro-sidebar/dist/css/styles.css";
 import { Button } from "@material-ui/core"
 import { Switch, Route, Link } from "react-router-dom";
-import Applications from "./Applications";
+import Applications from "./Applications/Applications";
 import Home from "./Home"
 
 
-const Navbar = ({ clearToken }) => {
-
+const Navbar = ({ clearToken, token }) => {
+  
   const [collapse, setCollapse] = useState(false)
 
   const handleCollapsedChange = (collapsed) => {
     setCollapse(!collapsed)
     console.log('collapsed')
   }
+  
   
 
   return (
@@ -39,7 +40,7 @@ const Navbar = ({ clearToken }) => {
             <Home />
           </Route>
           <Route exact path="/applications">
-            <Applications />
+            <Applications token={token} />
           </Route>
         </Switch> 
 

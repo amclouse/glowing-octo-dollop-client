@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "./Sidenav";
 import { Switch, Route, Link } from "react-router-dom";
-import Applications from "./Applications";
+// import Applications from "./Applications";
 import DefaultPic from "../../assets/AdamClouse2.jpg";
 import "../../styles/Dashboard/Home.css";
 
