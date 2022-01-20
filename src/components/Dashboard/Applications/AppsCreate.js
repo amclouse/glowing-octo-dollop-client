@@ -15,7 +15,7 @@ const AppsCreate = ({getApplications, token}) => {
   const [companyName, setcompanyName] = useState("")
   const [role, setRole] = useState("")
   const [date, setDate] = useState("")
-  const [response, setResponse] = useState(false)
+  const [response, setResponse] = useState("")
 
   const handleOpen = () => {
     setOpen(true);
@@ -36,12 +36,15 @@ const AppsCreate = ({getApplications, token}) => {
     })
     .then(res => res.json())
     .then((appData) => {
+      
       console.log(appData);
       setcompanyName(companyName);
       setRole(role);
       setResponse(response);
     })
     .then(getApplications())
+    .then(setOpen(false))
+    .catch(err => console.log(`${err}`))
   };
 
 
@@ -70,7 +73,7 @@ const AppsCreate = ({getApplications, token}) => {
         <Button
           variant="contained"
           color="default"
-          style={{ height: "20px", margin: "3px", width: "25px" }}
+          style={{ height: "20px", margin: "3px", width: "10px" }}
           type="button"
           onClick={handleOpen}
         > 
